@@ -1,0 +1,17 @@
+{
+    "author": {
+        "email": "mihal1073@outlook.com",
+        "name": "mihal1073",
+        "url": "https://ms0503.github.io"
+    },
+    "description": "An avatar gimmick that changes facial expression to specified one when avatar is brushed gently",
+    "displayName": "Nade Gimmick",
+    "name": "ms.sora.nade-gimmick",
+    "repo": "https://ms0503.github.io/vpm.json",
+    "unity": "2022.3",
+    "url": "https://github.com/ms0503/NadeGimmick",
+    "version": "1.0.0",
+    "vpmDependencies": {
+        "nadena.dev.modular-avatar": ">=1.0.0"
+    }
+}
