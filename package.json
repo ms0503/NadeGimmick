@@ -10,7 +10,7 @@
     "repo": "https://ms0503.github.io/vpm.json",
     "unity": "2022.3",
     "url": "https://github.com/ms0503/NadeGimmick",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "vpmDependencies": {
         "nadena.dev.modular-avatar": ">=1.0.0"
     }
