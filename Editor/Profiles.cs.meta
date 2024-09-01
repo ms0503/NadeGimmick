@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2526ed594b9848288b8f2b36b8657195
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - defaultNadeAnim: {fileID: 7400000, guid: 46fa3d22d0aad86ab8327f3ccb0e57c1, type: 2}
+  - originalAnimator: {fileID: 9100000, guid: cec04d15c53b37d59b28fb5eef879761, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,29 +8,22 @@ msgstr ""
 msgid "Animator Controller"
 msgstr "アニメーターコントローラー"
 
-msgid "Avatar to install"
-msgstr "インストール先アバター"
+msgid "Avatar"
+msgstr "アバター"
 
-msgid "An avatar to install this.\nPlease put what contains VRC Avatar Descriptor in hierarchy."
-msgstr "インストール先のアバターです。\nヒエラルキー上のVRC Avatar Descriptorが付与されているものを入れてください。"
+msgid ""
+"An avatar object to configure.\n"
+"Please put what contains VRC Avatar Descriptor in hierarchy."
+msgstr ""
+"設定するアバターのオブジェクトです。\n"
+"ヒエラルキー上のVRC Avatar Descriptorが付与されているものを入れてください。"
 
-msgid "Install / Load"
-msgstr "インストール/読み込み"
-
-msgid "Install this to the avatar or load this from it."
-msgstr "アバターへインストールします。もしくはアバターから読み込みます。"
-
-msgid "Install this.\nIf the avatar is already installed, load from it."
-msgstr "インストールします。\n既にインストールされている場合は読み込みます。"
-
-msgid "Avatar is not specified.\nPlease specify avatar object."
-msgstr "アバターが指定されていません。\nアバターを指定してください。"
-
-msgid "Installed."
-msgstr "インストールしました。"
-
-msgid "Loaded."
-msgstr "読み込みました。"
+msgid ""
+"Avatar is not specified.\n"
+"Please specify avatar object."
+msgstr ""
+"アバターが指定されていません。\n"
+"アバターを指定してください。"
 
 msgid "Facial expression animation"
 msgstr "なで表情アニメーション"
@@ -44,11 +37,40 @@ msgstr "リセット"
 msgid "Set facial expression animation to dummy."
 msgstr "なで表情アニメーションをダミーへ戻します。"
 
-msgid "Save"
-msgstr "保存"
+msgid "Nade Gimmick Avatar Settings"
+msgstr "なでギミックアバター設定"
 
-msgid "Save to animator."
-msgstr "アニメーターコントローラーへ保存します。"
+msgid "Nade Gimmick Profiles"
+msgstr "なでギミックプロファイル"
 
-msgid "Nade Gimmick Settings"
-msgstr "なでギミック設定"
+msgid "Profile"
+msgstr "プロファイル"
+
+msgid "A profile of Nade Gimmick."
+msgstr "なでギミックのプロファイルです。"
+
+msgid "Create profile"
+msgstr "プロファイル作成"
+
+msgid "Create new Nade Gimmick profile."
+msgstr "新しいなでギミックプロファイルを作成します。"
+
+msgid "Profile name"
+msgstr "プロファイル名"
+
+msgid "A profile name to create."
+msgstr "作成するプロファイルの名前です。"
+
+msgid ""
+"Nade Gimmick is not installed in the avatar.\n"
+"Please install it."
+msgstr ""
+"アバターになでギミックがインストールされていません。\n"
+"インストールしてください。"
+
+msgid ""
+"This avatar is not set Nade Gimmick profile.\n"
+"Please set in the following field."
+msgstr ""
+"このアバターにはなでギミックプロファイルが設定されていません。\n"
+"下記欄から設定してください。"

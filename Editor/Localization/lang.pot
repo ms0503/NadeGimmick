@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Animator Controller"
+msgstr ""
+
+msgid "Avatar"
+msgstr ""
+
+msgid ""
+"An avatar object to configure.\n"
+"Please put what contains VRC Avatar Descriptor in hierarchy."
+msgstr ""
+
+msgid ""
+"Avatar is not specified.\n"
+"Please specify avatar object."
+msgstr ""
+
+msgid "Facial expression animation"
+msgstr ""
+
+msgid "An animation of facial expression that is used when avatar is brushed gently."
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Set facial expression animation to dummy."
+msgstr ""
+
+msgid "Nade Gimmick Avatar Settings"
+msgstr ""
+
+msgid "Nade Gimmick Profiles"
+msgstr ""
+
+msgid "Profile"
+msgstr ""
+
+msgid "A profile of Nade Gimmick."
+msgstr ""
+
+msgid "Create profile"
+msgstr ""
+
+msgid "Create new Nade Gimmick profile."
+msgstr ""
+
+msgid "Profile name"
+msgstr ""
+
+msgid "A profile name to create."
+msgstr ""
+
+msgid ""
+"Nade Gimmick is not installed in the avatar.\n"
+"Please install it."
+msgstr ""
+
+msgid ""
+"This avatar is not set Nade Gimmick profile.\n"
+"Please set in the following field."
+msgstr ""
