@@ -57,7 +57,7 @@ MonoBehaviour:
   - Finger
   allowSelf: 0
   allowOthers: 1
-  localOnly: 0
+  localOnly: 1
   receiverType: 0
   parameter: isNade
   minVelocity: 0.05
@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 1561059667548190319}
   - component: {fileID: 7222529688051138671}
   - component: {fileID: -1852262991837881285}
-  - component: {fileID: 7928064226154295606}
   - component: {fileID: -7144691236263810191}
   m_Layer: 0
   m_Name: NadeGimmick
@@ -149,33 +148,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 9100000, guid: cec04d15c53b37d59b28fb5eef879761, type: 2}
   layerType: 5
-  deleteAttachedAnimator: 1
-  pathMode: 0
+  deleteAttachedAnimator: 0
+  pathMode: 1
   matchAvatarWriteDefaults: 1
   relativePathRoot:
     referencePath: 
   layerPriority: 0
---- !u!95 &7928064226154295606
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595838627467868102}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cec04d15c53b37d59b28fb5eef879761, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-7144691236263810191
 MonoBehaviour:
   m_ObjectHideFlags: 0
