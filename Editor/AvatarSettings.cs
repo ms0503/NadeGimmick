@@ -12,8 +12,8 @@ namespace NadeGimmick.Editor {
         private void CreateGUI() {
             this.minSize = new Vector2(400, 220);
             var root = this.rootVisualElement;
-            if(!Directory.Exists("Assets/NadeGimmick")) {
-                Directory.CreateDirectory("Assets/NadeGimmick");
+            if(!Directory.Exists(Constants.PROFILE_PATH)) {
+                Directory.CreateDirectory(Constants.PROFILE_PATH);
             }
             var title = new Label(L10n.Tr("Nade Gimmick Avatar Settings")) {
                 style = {
@@ -27,7 +27,8 @@ namespace NadeGimmick.Editor {
                     maxHeight = 40
                 },
                 tooltip = L10n.Tr(
-                    "An avatar object to configure.\nPlease put what contains VRC Avatar Descriptor in hierarchy.")
+                    "An avatar object to configure.\n" +
+                    "Please put what contains VRC Avatar Descriptor in hierarchy.")
             };
             var status = new Label("==========[Nade Gimmick]==========") {
                 style = {
@@ -57,21 +58,24 @@ namespace NadeGimmick.Editor {
                 status.text = "==========[Nade Gimmick]==========";
                 var parent = (GameObject)e.newValue;
                 if(parent is null) {
-                    status.text = L10n.Tr("Avatar is not specified.\nPlease specify avatar object.");
+                    status.text = L10n.Tr("Avatar is not specified.\n" +
+                        "Please specify avatar object.");
                     return;
                 }
                 GameObject obj;
                 if(parent.transform.Find("NadeGimmick") is { } nadeGimmick) {
                     obj = nadeGimmick.gameObject;
                 } else {
-                    status.text = L10n.Tr("Nade Gimmick is not installed in the avatar.\nPlease install it.");
+                    status.text = L10n.Tr("Nade Gimmick is not installed in the avatar.\n" +
+                        "Please install it.");
                     return;
                 }
                 var name = obj.GetComponent<NadeGimmickProfile>().name;
                 if(name == "") {
                     profile.value = "";
                     status.text =
-                        L10n.Tr("This avatar is not set Nade Gimmick profile.\nPlease set in the following field.");
+                        L10n.Tr("This avatar is not set Nade Gimmick profile.\n" +
+                            "Please set in the following field.");
                     return;
                 }
                 var anim = AssetDatabase.LoadAssetAtPath<AnimatorController>(Constants.PROFILE_PATH + "/" + name +
@@ -83,14 +87,16 @@ namespace NadeGimmick.Editor {
             profile.RegisterValueChangedCallback(e => {
                 var parent = (GameObject)avatar.value;
                 if(parent is null) {
-                    status.text = L10n.Tr("Avatar is not specified.\nPlease specify avatar object.");
+                    status.text = L10n.Tr("Avatar is not specified.\n" +
+                        "Please specify avatar object.");
                     return;
                 }
                 GameObject obj;
                 if(parent.transform.Find("NadeGimmick") is { } nadeGimmick) {
                     obj = nadeGimmick.gameObject;
                 } else {
-                    status.text = L10n.Tr("Nade Gimmick is not installed in the avatar.\nPlease install it.");
+                    status.text = L10n.Tr("Nade Gimmick is not installed in the avatar.\n" +
+                        "Please install it.");
                     return;
                 }
                 var anim = AssetDatabase.LoadAssetAtPath<AnimatorController>(Constants.PROFILE_PATH + "/" + e.newValue +
