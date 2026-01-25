@@ -20,10 +20,28 @@ msgid ""
 "Please specify avatar object."
 msgstr ""
 
-msgid "Facial expression animation"
+msgid "Facial expression animation (Face)"
 msgstr ""
 
-msgid "An animation of facial expression that is used when avatar is brushed gently."
+msgid "An animation of facial expression that is used when avatar's face is patted."
+msgstr ""
+
+msgid "Facial expression animation (Left ear)"
+msgstr ""
+
+msgid "An animation of facial expression that is used when avatar's left ear is touched."
+msgstr ""
+
+msgid "Facial expression animation (Right ear)"
+msgstr ""
+
+msgid "An animation of facial expression that is used when avatar's right ear is touched."
+msgstr ""
+
+msgid "Facial expression animation (Chest)"
+msgstr ""
+
+msgid "An animation of facial expression that is used when avatar's chest is touched."
 msgstr ""
 
 msgid "Reset"
@@ -64,4 +82,16 @@ msgstr ""
 msgid ""
 "This avatar is not set Nade Gimmick profile.\n"
 "Please set in the following field."
+msgstr ""
+
+msgid "(Create new profile)"
+msgstr ""
+
+msgid "This profile must be converted to new style."
+msgstr ""
+
+msgid "Convert profile"
+msgstr ""
+
+msgid "Convert to new style profile."
 msgstr ""

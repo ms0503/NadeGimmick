@@ -1,6 +1,6 @@
 {
     "name": "NadeGimmick.Editor",
-    "rootNamespace": "NadeGimmick",
+    "rootNamespace": "NadeGimmick.Editor",
     "references": [
         "nadena.dev.modular-avatar.core",
         "NadeGimmick"

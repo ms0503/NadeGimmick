@@ -1,6 +1,6 @@
 {
     "name": "NadeGimmick",
-    "rootNamespace": "",
+    "rootNamespace": "NadeGimmick",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -25,11 +25,29 @@ msgstr ""
 "アバターが指定されていません。\n"
 "アバターを指定してください。"
 
-msgid "Facial expression animation"
-msgstr "なで表情アニメーション"
+msgid "Facial expression animation (Face)"
+msgstr "なで表情アニメーション(顔)"
 
-msgid "An animation of facial expression that is used when avatar is brushed gently."
-msgstr "なでられた時の表情アニメーションです。"
+msgid "An animation of facial expression that is used when avatar's face is patted."
+msgstr "顔をなでられた時の表情アニメーションです。"
+
+msgid "Facial expression animation (Left ear)"
+msgstr "なで表情アニメーション(左耳)"
+
+msgid "An animation of facial expression that is used when avatar's left ear is touched."
+msgstr "左耳を触られた時の表情アニメーションです。"
+
+msgid "Facial expression animation (Right ear)"
+msgstr "なで表情アニメーション(右耳)"
+
+msgid "An animation of facial expression that is used when avatar's right ear is touched."
+msgstr "右耳を触られた時の表情アニメーションです。"
+
+msgid "Facial expression animation (Chest)"
+msgstr "なで表情アニメーション(胸)"
+
+msgid "An animation of facial expression that is used when avatar's chest is touched."
+msgstr "胸を触られた時の表情アニメーションです。"
 
 msgid "Reset"
 msgstr "リセット"
@@ -74,3 +92,15 @@ msgid ""
 msgstr ""
 "このアバターにはなでギミックプロファイルが設定されていません。\n"
 "下記欄から設定してください。"
+
+msgid "(Create new profile)"
+msgstr "(新しくプロファイルを作成する)"
+
+msgid "This profile must be converted to new style."
+msgstr "このプロファイルは新しい形式へ変換する必要があります。"
+
+msgid "Convert profile"
+msgstr "プロファイルを変換"
+
+msgid "Convert to new style profile."
+msgstr "プロファイルを新しい形式へ変換します。"
