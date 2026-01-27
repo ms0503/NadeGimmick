@@ -37,7 +37,7 @@ namespace NadeGimmick.Editor {
                 style = {
                     marginBottom = 20
                 },
-                tooltip = L10n.Tr("A profile of Nade Gimmick.")
+                tooltip = L10n.Tr("A profile of Nade Face Gimmick.")
             };
             var createContainer = new VisualElement();
             var profileName = new TextField(L10n.Tr("Profile name")) {
@@ -49,7 +49,7 @@ namespace NadeGimmick.Editor {
                     marginBottom = 20
                 },
                 text = L10n.Tr("Create profile"),
-                tooltip = L10n.Tr("Create new Nade Gimmick profile.")
+                tooltip = L10n.Tr("Create new Nade Face Gimmick profile.")
             };
             var editContainer = new VisualElement();
             var faceAnim = new ObjectField(L10n.Tr("Facial expression animation (Face)")) {
@@ -84,6 +84,14 @@ namespace NadeGimmick.Editor {
                 },
                 tooltip = L10n.Tr("An animation of facial expression that is used when avatar's chest is touched.")
             };
+            var crotchAnim = new ObjectField(L10n.Tr("Facial expression animation (Crotch)")) {
+                objectType = typeof(AnimationClip),
+                style = {
+                    maxHeight = 40,
+                    marginBottom = 20
+                },
+                tooltip = L10n.Tr("An animation of facial expression that is used when avatar's crotch is touched.")
+            };
             var reset = new Button {
                 style = {
                     maxWidth = 100,
@@ -92,7 +100,7 @@ namespace NadeGimmick.Editor {
                 text = L10n.Tr("Reset"),
                 tooltip = L10n.Tr("Set facial expression animation to dummy.")
             };
-            var convertContainer = new VisualElement();
+            var convertV4Container = new VisualElement();
             var convertNotice = new Label(L10n.Tr("This profile must be converted to new style.")) {
                 style = {
                     backgroundColor = new StyleColor(new Color32(0x55, 0x55, 0x55, 0xff)),
@@ -105,7 +113,15 @@ namespace NadeGimmick.Editor {
                     paddingTop = 5
                 }
             };
-            var convert = new Button {
+            var convertV4 = new Button {
+                style = {
+                    marginBottom = 20
+                },
+                text = L10n.Tr("Convert profile"),
+                tooltip = L10n.Tr("Convert to new style profile.")
+            };
+            var convertV50Container = new VisualElement();
+            var convertV50 = new Button {
                 style = {
                     marginBottom = 20
                 },
@@ -116,7 +132,8 @@ namespace NadeGimmick.Editor {
                 var index = mode switch {
                     Mode.Create => root.IndexOf(createContainer),
                     Mode.Edit => root.IndexOf(editContainer),
-                    Mode.Convert => root.IndexOf(convertContainer),
+                    Mode.ConvertV4 => root.IndexOf(convertV4Container),
+                    Mode.ConvertV50 => root.IndexOf(convertV50Container),
                     _ => throw new NotImplementedException()
                 };
                 root.RemoveAt(index);
@@ -128,14 +145,24 @@ namespace NadeGimmick.Editor {
                 this._anim = AssetDatabase.LoadAssetAtPath<AnimatorController>(
                     $"{Constants.PROFILE_PATH}/{e.newValue}.controller"
                 );
-                var hasOldLayer = (
+                var isV4Animator = (
                     from _layer in this._anim.layers
                     where _layer.name == "Nade"
                     select true
                 ).Contains(true);
-                if(hasOldLayer) {
-                    mode = Mode.Convert;
-                    root.Insert(index, convertContainer);
+                if(isV4Animator) {
+                    mode = Mode.ConvertV4;
+                    root.Insert(index, convertV4Container);
+                    return;
+                }
+                var isV50Animator = !(
+                    from _layer in this._anim.layers
+                    where _layer.name == "Crotch"
+                    select true
+                ).Contains(true);
+                if(isV50Animator) {
+                    mode = Mode.ConvertV50;
+                    root.Insert(index, convertV50Container);
                     return;
                 }
                 mode = Mode.Edit;
@@ -145,16 +172,14 @@ namespace NadeGimmick.Editor {
                         Tuple.Create("Face", faceAnim),
                         Tuple.Create("LeftEar", leftEarAnim),
                         Tuple.Create("RightEar", rightEarAnim),
-                        Tuple.Create("Chest", chestAnim)
+                        Tuple.Create("Chest", chestAnim),
+                        Tuple.Create("Crotch", crotchAnim)
                     }
                 ) {
-                    var layer = (
+                    var state = (
                         from _layer in this._anim.layers
                         where _layer.name == layerName
-                        select _layer
-                    ).First();
-                    var state = (
-                        from _state in layer.stateMachine.states
+                        from _state in _layer.stateMachine.states
                         where _state.state.name == "Touched"
                         select _state.state
                     ).First();
@@ -170,52 +195,50 @@ namespace NadeGimmick.Editor {
                 profileName.value = "";
             });
             faceAnim.RegisterValueChangedCallback(e => {
-                var layer = (
+                var state = (
                     from _layer in this._anim.layers
                     where _layer.name == "Face"
-                    select _layer
-                ).First();
-                var state = (
-                    from _state in layer.stateMachine.states
+                    from _state in _layer.stateMachine.states
                     where _state.state.name == "Touched"
                     select _state.state
                 ).First();
                 state.motion = (AnimationClip)e.newValue;
             });
             leftEarAnim.RegisterValueChangedCallback(e => {
-                var layer = (
+                var state = (
                     from _layer in this._anim.layers
                     where _layer.name == "LeftEar"
-                    select _layer
-                ).First();
-                var state = (
-                    from _state in layer.stateMachine.states
+                    from _state in _layer.stateMachine.states
                     where _state.state.name == "Touched"
                     select _state.state
                 ).First();
                 state.motion = (AnimationClip)e.newValue;
             });
             rightEarAnim.RegisterValueChangedCallback(e => {
-                var layer = (
+                var state = (
                     from _layer in this._anim.layers
                     where _layer.name == "RightEar"
-                    select _layer
-                ).First();
-                var state = (
-                    from _state in layer.stateMachine.states
+                    from _state in _layer.stateMachine.states
                     where _state.state.name == "Touched"
                     select _state.state
                 ).First();
                 state.motion = (AnimationClip)e.newValue;
             });
             chestAnim.RegisterValueChangedCallback(e => {
-                var layer = (
+                var state = (
                     from _layer in this._anim.layers
                     where _layer.name == "Chest"
-                    select _layer
+                    from _state in _layer.stateMachine.states
+                    where _state.state.name == "Touched"
+                    select _state.state
                 ).First();
+                state.motion = (AnimationClip)e.newValue;
+            });
+            crotchAnim.RegisterValueChangedCallback(e => {
                 var state = (
-                    from _state in layer.stateMachine.states
+                    from _layer in this._anim.layers
+                    where _layer.name == "Crotch"
+                    from _state in _layer.stateMachine.states
                     where _state.state.name == "Touched"
                     select _state.state
                 ).First();
@@ -227,16 +250,14 @@ namespace NadeGimmick.Editor {
                         Tuple.Create("Face", faceAnim),
                         Tuple.Create("LeftEar", leftEarAnim),
                         Tuple.Create("RightEar", rightEarAnim),
-                        Tuple.Create("Chest", chestAnim)
+                        Tuple.Create("Chest", chestAnim),
+                        Tuple.Create("Crotch", crotchAnim)
                     }
                 ) {
-                    var layer = (
+                    var state = (
                         from _layer in this._anim.layers
                         where _layer.name == layerName
-                        select _layer
-                    ).First();
-                    var state = (
-                        from _state in layer.stateMachine.states
+                        from _state in _layer.stateMachine.states
                         where _state.state.name == "Touched"
                         select _state.state
                     ).First();
@@ -244,22 +265,18 @@ namespace NadeGimmick.Editor {
                     anim.value = this.defaultNadeAnim;
                 }
             });
-            convert.RegisterCallback<ClickEvent>(_ => {
+            convertV4.RegisterCallback<ClickEvent>(_ => {
                 AssetDatabase.CopyAsset(
                     AssetDatabase.GetAssetPath(this._anim),
                     $"{Constants.PROFILE_PATH}/{profile.value}.backup.controller"
                 );
-                var nadeLayer = (
+                var anim = (
                     from _layer in this._anim.layers
                     where _layer.name == "Nade"
-                    select _layer
-                ).First();
-                var nadeState = (
-                    from _state in nadeLayer.stateMachine.states
+                    from _state in _layer.stateMachine.states
                     where _state.state.name == "Nade"
-                    select _state.state
+                    select _state.state.motion
                 ).First();
-                var anim = nadeState.motion;
                 AssetDatabase.CopyAsset(
                     AssetDatabase.GetAssetPath(this.originalAnimator),
                     $"{Constants.PROFILE_PATH}/{profile.value}.controller"
@@ -267,64 +284,104 @@ namespace NadeGimmick.Editor {
                 this._anim = AssetDatabase.LoadAssetAtPath<AnimatorController>(
                     $"{Constants.PROFILE_PATH}/{profile.value}.controller"
                 );
-                var layer = (
+                var state = (
                     from _layer in this._anim.layers
                     where _layer.name == "Face"
-                    select _layer
-                ).First();
-                var state = (
-                    from _state in layer.stateMachine.states
+                    from _state in _layer.stateMachine.states
                     where _state.state.name == "Touched"
                     select _state.state
                 ).First();
                 state.motion = anim;
-                var index = root.IndexOf(convertContainer);
+                faceAnim.value = anim;
+                var index = root.IndexOf(convertV4Container);
                 root.RemoveAt(index);
                 mode = Mode.Edit;
                 root.Insert(index, editContainer);
             });
-            if(1 < profiles.Count) {
-                this._anim = AssetDatabase.LoadAssetAtPath<AnimatorController>(
-                    $"{Constants.PROFILE_PATH}/{profiles[1]}.controller"
+            convertV50.RegisterCallback<ClickEvent>(_ => {
+                AssetDatabase.CopyAsset(
+                    AssetDatabase.GetAssetPath(this._anim),
+                    $"{Constants.PROFILE_PATH}/{profile.value}.backup.controller"
                 );
-                foreach(
-                    var (layerName, anim) in new[] {
+                var anims = (
+                    from t in new[] {
                         Tuple.Create("Face", faceAnim),
                         Tuple.Create("LeftEar", leftEarAnim),
                         Tuple.Create("RightEar", rightEarAnim),
                         Tuple.Create("Chest", chestAnim)
                     }
+                    let state = (
+                        from _layer in this._anim.layers
+                        where _layer.name == t.Item1
+                        from _state in _layer.stateMachine.states
+                        where _state.state.name == "Touched"
+                        select _state.state
+                    ).First()
+                    select state.motion
+                ).ToArray();
+                AssetDatabase.CopyAsset(
+                    AssetDatabase.GetAssetPath(this.originalAnimator),
+                    $"{Constants.PROFILE_PATH}/{profile.value}.controller"
+                );
+                this._anim = AssetDatabase.LoadAssetAtPath<AnimatorController>(
+                    $"{Constants.PROFILE_PATH}/{profile.value}.controller"
+                );
+                foreach(
+                    var (i, layerName, anim) in new[] {
+                        Tuple.Create(0, "Face", faceAnim),
+                        Tuple.Create(1, "LeftEar", leftEarAnim),
+                        Tuple.Create(2, "RightEar", rightEarAnim),
+                        Tuple.Create(3, "Chest", chestAnim)
+                    }
                 ) {
-                    var layer = (
+                    var state = (
                         from _layer in this._anim.layers
                         where _layer.name == layerName
-                        select _layer
-                    ).First();
-                    var state = (
-                        from _state in layer.stateMachine.states
+                        from _state in _layer.stateMachine.states
                         where _state.state.name == "Touched"
                         select _state.state
                     ).First();
-                    anim.value = state.motion;
+                    state.motion = anims[i];
+                    anim.value = anims[i];
                 }
-            }
+                var crotchState = (
+                    from _layer in this._anim.layers
+                    where _layer.name == "Crotch"
+                    from _state in _layer.stateMachine.states
+                    where _state.state.name == "Touched"
+                    select _state.state
+                ).First();
+                crotchState.motion = this.defaultNadeAnim;
+                crotchAnim.value = this.defaultNadeAnim;
+                var index = root.IndexOf(convertV50Container);
+                root.RemoveAt(index);
+                mode = Mode.Edit;
+                root.Insert(index, editContainer);
+            });
             createContainer.Add(profileName);
             createContainer.Add(create);
             editContainer.Add(faceAnim);
             editContainer.Add(leftEarAnim);
             editContainer.Add(rightEarAnim);
             editContainer.Add(chestAnim);
+            editContainer.Add(crotchAnim);
             editContainer.Add(reset);
-            convertContainer.Add(convertNotice);
-            convertContainer.Add(convert);
+            convertV4Container.Add(convertNotice);
+            convertV4Container.Add(convertV4);
+            convertV50Container.Add(convertNotice);
+            convertV50Container.Add(convertV50);
             root.Add(profile);
             root.Add(createContainer);
+            if(1 < profiles.Count) {
+                profile.value = profiles[1];
+            }
         }
 
         private enum Mode {
             Create,
             Edit,
-            Convert
+            ConvertV4,
+            ConvertV50
         }
     }
 }

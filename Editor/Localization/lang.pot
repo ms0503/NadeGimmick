@@ -44,28 +44,34 @@ msgstr ""
 msgid "An animation of facial expression that is used when avatar's chest is touched."
 msgstr ""
 
+msgid "Facial expression animation (Crotch)"
+msgstr ""
+
+msgid "An animation of facial expression that is used when avatar's crotch is touched."
+msgstr ""
+
 msgid "Reset"
 msgstr ""
 
 msgid "Set facial expression animation to dummy."
 msgstr ""
 
-msgid "Nade Gimmick Avatar Settings"
+msgid "Nade Face Gimmick Avatar Settings"
 msgstr ""
 
-msgid "Nade Gimmick Profiles"
+msgid "Nade Face Gimmick Profiles"
 msgstr ""
 
 msgid "Profile"
 msgstr ""
 
-msgid "A profile of Nade Gimmick."
+msgid "A profile of Nade Face Gimmick."
 msgstr ""
 
 msgid "Create profile"
 msgstr ""
 
-msgid "Create new Nade Gimmick profile."
+msgid "Create new Nade Face Gimmick profile."
 msgstr ""
 
 msgid "Profile name"
@@ -75,12 +81,12 @@ msgid "A profile name to create."
 msgstr ""
 
 msgid ""
-"Nade Gimmick is not installed in the avatar.\n"
+"Nade Face Gimmick is not installed in the avatar.\n"
 "Please install it."
 msgstr ""
 
 msgid ""
-"This avatar is not set Nade Gimmick profile.\n"
+"This avatar is not set Nade Face Gimmick profile.\n"
 "Please set in the following field."
 msgstr ""
 

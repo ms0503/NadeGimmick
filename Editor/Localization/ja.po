@@ -49,29 +49,35 @@ msgstr "なで表情アニメーション(胸)"
 msgid "An animation of facial expression that is used when avatar's chest is touched."
 msgstr "胸を触られた時の表情アニメーションです。"
 
+msgid "Facial expression animation (Crotch)"
+msgstr "なで表情アニメーション(股間)"
+
+msgid "An animation of facial expression that is used when avatar's crotch is touched."
+msgstr "股間を触られた時の表情アニメーションです。"
+
 msgid "Reset"
 msgstr "リセット"
 
 msgid "Set facial expression animation to dummy."
 msgstr "なで表情アニメーションをダミーへ戻します。"
 
-msgid "Nade Gimmick Avatar Settings"
-msgstr "なでギミックアバター設定"
+msgid "Nade Face Gimmick Avatar Settings"
+msgstr "なで表情ギミックアバター設定"
 
-msgid "Nade Gimmick Profiles"
-msgstr "なでギミックプロファイル"
+msgid "Nade Face Gimmick Profiles"
+msgstr "なで表情ギミックプロファイル"
 
 msgid "Profile"
 msgstr "プロファイル"
 
-msgid "A profile of Nade Gimmick."
-msgstr "なでギミックのプロファイルです。"
+msgid "A profile of Nade Face Gimmick."
+msgstr "なで表情ギミックのプロファイルです。"
 
 msgid "Create profile"
 msgstr "プロファイル作成"
 
-msgid "Create new Nade Gimmick profile."
-msgstr "新しいなでギミックプロファイルを作成します。"
+msgid "Create new Nade Face Gimmick profile."
+msgstr "新しいなで表情ギミックプロファイルを作成します。"
 
 msgid "Profile name"
 msgstr "プロファイル名"
@@ -80,17 +86,17 @@ msgid "A profile name to create."
 msgstr "作成するプロファイルの名前です。"
 
 msgid ""
-"Nade Gimmick is not installed in the avatar.\n"
+"Nade Face Gimmick is not installed in the avatar.\n"
 "Please install it."
 msgstr ""
-"アバターになでギミックがインストールされていません。\n"
+"アバターになで表情ギミックがインストールされていません。\n"
 "インストールしてください。"
 
 msgid ""
-"This avatar is not set Nade Gimmick profile.\n"
+"This avatar is not set Nade Face Gimmick profile.\n"
 "Please set in the following field."
 msgstr ""
-"このアバターにはなでギミックプロファイルが設定されていません。\n"
+"このアバターにはなで表情ギミックプロファイルが設定されていません。\n"
 "下記欄から設定してください。"
 
 msgid "(Create new profile)"

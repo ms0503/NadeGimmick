@@ -15,7 +15,7 @@ namespace NadeGimmick.Editor {
             if(!Directory.Exists(Constants.PROFILE_PATH)) {
                 Directory.CreateDirectory(Constants.PROFILE_PATH);
             }
-            var title = new Label(L10n.Tr("Nade Gimmick Avatar Settings")) {
+            var title = new Label(L10n.Tr("Nade Face Gimmick Avatar Settings")) {
                 style = {
                     fontSize = 24
                 }
@@ -30,7 +30,7 @@ namespace NadeGimmick.Editor {
                     "An avatar object to configure.\n" +
                     "Please put what contains VRC Avatar Descriptor in hierarchy.")
             };
-            var status = new Label("==========[Nade Gimmick]==========") {
+            var status = new Label("==========[Nade Face Gimmick]==========") {
                 style = {
                     backgroundColor = new StyleColor(new Color32(0x55, 0x55, 0x55, 0xff)),
                     marginBottom = 25,
@@ -52,10 +52,10 @@ namespace NadeGimmick.Editor {
                 style = {
                     marginBottom = 20
                 },
-                tooltip = L10n.Tr("A profile of Nade Gimmick.")
+                tooltip = L10n.Tr("A profile of Nade Face Gimmick.")
             };
             avatar.RegisterValueChangedCallback(e => {
-                status.text = "==========[Nade Gimmick]==========";
+                status.text = "==========[Nade Face Gimmick]==========";
                 var parent = (GameObject)e.newValue;
                 if(parent is null) {
                     status.text = L10n.Tr("Avatar is not specified.\n" +
@@ -66,7 +66,7 @@ namespace NadeGimmick.Editor {
                 if(parent.transform.Find("NadeGimmick") is { } nadeGimmick) {
                     obj = nadeGimmick.gameObject;
                 } else {
-                    status.text = L10n.Tr("Nade Gimmick is not installed in the avatar.\n" +
+                    status.text = L10n.Tr("Nade Face Gimmick is not installed in the avatar.\n" +
                         "Please install it.");
                     return;
                 }
@@ -74,7 +74,7 @@ namespace NadeGimmick.Editor {
                 if(name == "") {
                     profile.value = "";
                     status.text =
-                        L10n.Tr("This avatar is not set Nade Gimmick profile.\n" +
+                        L10n.Tr("This avatar is not set Nade Face Gimmick profile.\n" +
                             "Please set in the following field.");
                     return;
                 }
@@ -95,7 +95,7 @@ namespace NadeGimmick.Editor {
                 if(parent.transform.Find("NadeGimmick") is { } nadeGimmick) {
                     obj = nadeGimmick.gameObject;
                 } else {
-                    status.text = L10n.Tr("Nade Gimmick is not installed in the avatar.\n" +
+                    status.text = L10n.Tr("Nade Face Gimmick is not installed in the avatar.\n" +
                         "Please install it.");
                     return;
                 }
